@@ -152,13 +152,16 @@
                         <p style="text-align:center; padding:15px; background:rgba(255,255,255,0.3); border-radius:10px;">Xal toplamaq üçün giriş edin.</p>
                     </div>
                     <div id="active-content" style="display:none;">
-                        <p>Oyunu haradan izləyirsiniz?</p>
-                        <select id="vote-select" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:none;">
-                            <option value="3">TV (3 Xal)</option>
-                            <option value="5">Stadion (5 Xal)</option>
-                        </select>
-                        <button class="vote-btn" onclick="alert('Xalınız əlavə edildi!')">XALI QAZAN</button>
-                    </div>
+    <p id="vote-status" style="font-weight: bold; margin-bottom: 10px; font-size: 0.8rem;"></p>
+    <p>Oyunu haradan izləyirsiniz?</p>
+    <select id="vote-select" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:none;">
+        <option value="3">TV (3 Xal)</option>
+        <option value="5">Stadion (5 Xal)</option>
+    </select>
+    <button id="vote-submit-btn" class="vote-btn" onclick="alert('Xalınız qeydə alındı!')" disabled style="opacity: 0.5; cursor: not-allowed; width: 100%; margin-top: 15px;">
+        XALI QAZAN
+    </button>
+</div>
                 </div>
 
                 <div class="card">
@@ -302,6 +305,37 @@
                 if (Date.now() < end) requestAnimationFrame(frame);
             }());
         }
+        function updateVoteStatus() {
+    const now = new Date();
+    const gameStart = new Date("Feb 15, 2026 20:00:00");
+    const gameEnd = new Date("Feb 15, 2026 22:00:00"); 
+
+    const statusText = document.getElementById("vote-status");
+    const voteBtn = document.getElementById("vote-submit-btn");
+
+    if (!statusText || !voteBtn) return; // Səhv olmaması üçün yoxlama
+
+    if (now >= gameStart && now < gameEnd) {
+        statusText.innerText = "⚽ MATÇ DAVAM EDİR! Xalınızı qazanın.";
+        statusText.style.color = "#2ecc71"; 
+        voteBtn.disabled = false;
+        voteBtn.style.opacity = "1";
+        voteBtn.style.cursor = "pointer";
+    } else if (now >= gameEnd) {
+        statusText.innerText = "🚫 MATÇ BİTDİ! Sistem qapandı.";
+        statusText.style.color = "gray";
+        voteBtn.disabled = true;
+        voteBtn.style.opacity = "0.5";
+    } else {
+        statusText.innerText = "🕒 Xal sistemi matç vaxtı açılacaq.";
+        statusText.style.color = "#e74c3c";
+        voteBtn.disabled = true;
+        voteBtn.style.opacity = "0.5";
+    }
+}
+setInterval(updateVoteStatus, 1000);
+updateVoteStatus();
     </script>
 </body>
 </html>
+
