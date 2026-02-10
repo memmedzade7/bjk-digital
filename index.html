@@ -3,275 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BJK Digital | Created by RƏSUL MƏMMƏDZADƏ</title>
+    <title>BJK Digital | Rəsul Məmmədzadə</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bjk-black: #000000;
-            --bjk-white: #ffffff;
-            --bjk-red: #e74c3c;
-            --bjk-gold: #f1c40f;
-            --bg-color: #f0f2f5;
-            --text-color: #1a1a1a;
-            --card-bg: #ffffff;
-            --card-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            --bjk-black: #000000; --bjk-white: #ffffff; --bjk-red: #e74c3c;
+            --bg-color: #f0f2f5; --text-color: #1a1a1a; --card-bg: #ffffff;
         }
-
         body.dark-mode {
-            --bg-color: #0b0c10;
-            --text-color: #c5c6c7;
-            --card-bg: #1f2833;
-            --bjk-white: #1f2833;
+            --bg-color: #0b0c10; --text-color: #c5c6c7; --card-bg: #1f2833;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Poppins', sans-serif; transition: 0.4s; padding-top: 80px; overflow-x: hidden; }
-<div id="loader" style="position: fixed; width: 100%; height: 100vh; background: #000; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 1s;">
-    <h1 style="color: white; font-family: 'Oswald', sans-serif; font-size: 8rem; letter-spacing: 15px; margin: 0; text-shadow: 0 0 30px rgba(255,255,255,0.5);">1903</h1>
-    <div style="width: 50px; height: 3px; background: #e74c3c; margin: 20px 0; animation: scaleLine 2s infinite;"></div>
-    <p style="color: #aaa; font-family: 'Oswald', sans-serif; letter-spacing: 5px; text-transform: uppercase;">Qara Qartal Digital</p>
-</div>
 
-<style>
-@keyframes scaleLine {
-    0% { width: 0; }
-    50% { width: 200px; }
-    100% { width: 0; }
-}
-</style>
-        header {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 2000;
-            border-bottom: 3px solid var(--bjk-red);
+        /* PRELOADER (1903 EKRANI) */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
+            background: #000; z-index: 9999; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; transition: 1s;
         }
+        @keyframes scaleLine { 0%, 100% { width: 0; } 50% { width: 200px; } }
 
-        nav {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo h2 { color: #ffffff !important; font-family: 'Oswald', sans-serif; font-size: 1.6rem; text-transform: uppercase; }
-        .creator-tag { color: var(--bjk-red); font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; display: block; }
-
-        .nav-links { display: flex; align-items: center; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
-
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; margin-bottom: 40px;
-            border-bottom: 5px solid var(--bjk-red);
-        }
-
-        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 5px; text-shadow: 2px 2px 20px rgba(0,0,0,0.8); }
-        .hero p { font-size: 1.5rem; font-weight: 400; color: var(--bjk-red); font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 3px; }
-
-        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
-        .section-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
-
-        .card { background: var(--card-bg); border-radius: 15px; padding: 25px; box-shadow: var(--card-shadow); margin-bottom: 25px; position: relative; transition: 0.3s; }
-        .card:hover { transform: translateY(-3px); }
-        .section-title { font-family: 'Oswald', sans-serif; font-size: 1.8rem; margin-bottom: 20px; border-left: 5px solid var(--bjk-red); padding-left: 15px; text-transform: uppercase; }
-
-        .fan-gold-card { 
-            background: linear-gradient(135deg, #f1c40f, #f39c12) !important; 
-            color: black !important;
-            border: none;
-        }
-        .fan-gold-card .section-title { border-left-color: black; color: black; }
-        .fan-gold-card p, .fan-gold-card .top-fan { color: black !important; font-weight: bold; }
-        .fan-table tr { border-bottom: 1px solid rgba(0,0,0,0.1); }
-
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        .playlist { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
-        .play-btn { background: #000; color: white; border: none; padding: 10px 18px; border-radius: 5px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; font-weight: 600; }
-        .play-btn:hover { background: var(--bjk-red); }
-
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
-        .info-box { background: rgba(0,0,0,0.03); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid transparent; transition: 0.3s; }
-        .info-box i { font-size: 1.5rem; color: var(--bjk-red); margin-bottom: 8px; }
-
-        .quote-card { background: var(--bjk-black); color: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 25px; border-right: 8px solid var(--bjk-red); }
-        .quote-card i { font-size: 1.8rem; color: var(--bjk-red); margin-bottom: 10px; }
-
-        .vote-btn { background: var(--bjk-black); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
+        header { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 3px solid var(--bjk-red); }
+        nav { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo h2 { color: #ffffff !important; font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         
-        .match-card { background: var(--bjk-black); color: white; text-align: center; border-bottom: 5px solid var(--bjk-red); }
-        .countdown { display: flex; justify-content: center; gap: 10px; margin: 15px 0; }
-        .time-box { background: var(--bjk-red); padding: 10px; border-radius: 8px; min-width: 60px; color: white; }
+        .hero { height: 40vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; border-bottom: 5px solid var(--bjk-red); }
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; letter-spacing: 5px; }
 
-        .meshel-banner {
-            background: var(--bjk-black);
-            color: var(--bjk-white);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 25px;
-            border: 2px solid var(--bjk-red);
-            font-family: 'Oswald', sans-serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .section-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
 
-        footer { background: #000; color: white; text-align: center; padding: 50px 20px; margin-top: 60px; }
-        .footer-creator { color: var(--bjk-red); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: block; }
+        .card { background: var(--card-bg); border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px; border: 1px solid rgba(0,0,0,0.05); }
+        .section-title { font-family: 'Oswald', sans-serif; border-left: 5px solid var(--bjk-red); padding-left: 15px; margin-bottom: 15px; text-transform: uppercase; }
+        
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        .play-btn { background: #000; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; margin-top: 10px; font-weight: bold; width: 100%; transition: 0.3s; }
+        .play-btn:hover { background: var(--bjk-red); transform: scale(1.02); }
+
+        .time-box { background: var(--bjk-red); color: white; padding: 8px; border-radius: 5px; min-width: 50px; text-align: center; font-weight: bold; }
+        footer { background: #000; color: white; text-align: center; padding: 40px; margin-top: 40px; border-top: 5px solid var(--bjk-red); }
     </style>
 </head>
 <body>
 
+    <div id="loader">
+        <h1 style="color: white; font-family: 'Oswald', sans-serif; font-size: 6rem; letter-spacing: 10px; margin-bottom: 10px;">1903</h1>
+        <div style="width: 50px; height: 3px; background: #e74c3c; animation: scaleLine 2s infinite;"></div>
+        <p style="color: #aaa; font-family: 'Oswald', sans-serif; letter-spacing: 3px; margin-top: 20px;">QARA QARTAL DIGITAL</p>
+    </div>
+
     <header>
         <nav>
-            <div class="logo">
-                <h2>BEŞİKTAŞ <span style="color:var(--bjk-red)">JK</span></h2>
-                <span class="creator-tag">CREATED BY RƏSUL MƏMMƏDZADƏ</span>
-            </div>
+            <div class="logo"><h2>BEŞİKTAŞ <span style="color:var(--bjk-red)">JK</span></h2></div>
             <div class="nav-links">
-                <a href="#video">MEDİA</a>
-                <a href="#info">KLUB</a>
-                <button onclick="openLogin()" id="auth-btn" style="background:white; color:black; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold; margin-left:20px;">DAXİL OL</button>
-                <button id="theme-btn">🌙</button>
+                <button onclick="openLogin()" id="auth-btn" style="background:white; color:black; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold;">DAXİL OL</button>
+                <button id="theme-btn" style="background:none; border:none; color:white; font-size:1.2rem; cursor:pointer; margin-left:15px;">🌙</button>
             </div>
         </nav>
     </header>
 
     <section class="hero">
-        <h1><b>BEŞİKTAŞ</b></h1>
-        <p>Qara zindanlarda ağ ümidlər!</p>
+        <h1>BEŞİKTAŞ</h1>
+        <p style="color:var(--bjk-red); font-family:'Oswald'; letter-spacing:2px; font-weight:bold;">QARA ZİNDANLARDA AĞ ÜMİDLƏR!</p>
     </section>
 
     <div class="container">
         <div class="section-grid">
             
             <div class="main-content">
-                <div class="card fan-gold-card">
-                    <h2 class="section-title">Azarkeş Paneli</h2>
-                    <div id="locked-content">
-                        <p style="text-align:center; padding:15px; background:rgba(255,255,255,0.3); border-radius:10px;">Xal toplamaq üçün giriş edin.</p>
-                    </div>
+                <div class="card" style="background: linear-gradient(135deg, #f1c40f, #f39c12); color: black; border: none;">
+                    <h2 class="section-title" style="border-left-color: black;">Azarkeş Paneli</h2>
+                    <div id="locked-content"><p style="text-align:center; font-weight:bold;">Xal toplamaq üçün giriş edin.</p></div>
                     <div id="active-content" style="display:none;">
-    <p id="vote-status" style="font-weight: bold; margin-bottom: 10px; font-size: 0.8rem;"></p>
-    <p>Oyunu haradan izləyirsiniz?</p>
-    <select id="vote-select" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:none;">
-        <option value="3">TV (3 Xal)</option>
-        <option value="5">Stadion (5 Xal)</option>
-    </select>
-    <button id="vote-submit-btn" class="vote-btn" onclick="alert('Xalınız qeydə alındı!')" disabled style="opacity: 0.5; cursor: not-allowed; width: 100%; margin-top: 15px;">
-        XALI QAZAN
-    </button>
-</div>
+                        <p id="vote-status" style="font-weight:bold; margin-bottom:10px; font-size:0.9rem; text-align:center;"></p>
+                        <select id="vote-select" style="width:100%; padding:12px; border-radius:8px; border:none; margin-bottom:10px;">
+                            <option value="3">TV-dən izləyirəm (3 Xal)</option>
+                            <option value="5">Stadiondayam (5 Xal)</option>
+                        </select>
+                        <button id="vote-submit-btn" class="play-btn" style="background:black;">XALI QAZAN</button>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <h2 id="video" class="section-title">Media Mərkəzi</h2>
+                    <h2 class="section-title">Media Mərkəzi</h2>
                     <div class="video-wrapper">
                         <iframe id="main-video" src="https://www.youtube.com/embed/GDnaQ0s1yAo" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="playlist">
-                        <button class="play-btn" onclick="changeVideo('GDnaQ0s1yAo')">Gücünə Güc Qatmağa</button>
-                        <button class="play-btn" onclick="changeVideo('VqGv2xM8RkI')">Qara Qartal</button>
-                        <button class="play-btn" onclick="changeVideo('_J7H-7-wN70')">Çarşı Marşı</button>
-                    </div>
-                    <div style="margin-top: 25px; border-top: 2px dashed var(--bjk-red); padding-top: 15px;">
-    <h4 style="font-family: 'Oswald', sans-serif; margin-bottom: 10px;">
-        <i class="fas fa-volume-up"></i> TRİBUNA SƏSLƏRİ
-    </h4>
-    <div class="playlist">
-        <button class="play-btn" onclick="sesPleyer('https://www.myinstants.com/media/sounds/besiktas-mars-kartal-gol-gol-gol.mp3')">🦅 QARTAL QOL!</button>
-        <button class="play-btn" onclick="sesPleyer('https://www.myinstants.com/media/sounds/air-horn-club-sample_1.mp3')" style="background: #e74c3c;">📢 TRİBUNA SƏSİ</button>
-        <button class="play-btn" onclick="sesPleyer('https://www.soundjay.com/buttons/sounds/button-3.mp3')" style="background: #555;">🥁 TƏBİL SƏSİ</button>
-    </div>
-</div>
-                </div>
-                
-                <div id="info" class="card">
-                    <h2 class="section-title">Klub İnformasiyası</h2>
-                    <div class="info-grid">
-                        <div class="info-box"><i class="fas fa-landmark"></i><h4>Stadion</h4><p>Tüpraş Stadyumu</p></div>
-                        <div class="info-box"><i class="fas fa-user-tie"></i><h4>Prezident</h4><p>Serdal Adalı</p></div>
-                        <div class="info-box"><i class="fas fa-palette"></i><h4>Rənglər</h4><p>Qara - Ağ</p></div>
-                        <div class="info-box"><i class="fas fa-dove"></i><h4>Ləqəb</h4><p>Qara Qartallar</p></div>
-                    </div>
                 </div>
 
-                <div class="meshel-banner">
-                    <i class="fas fa-fire" style="color: var(--bjk-red); margin-right: 10px;"></i>
-                    1903-dən sönməyən məşəl, <b>RƏSUL MƏMMƏDZADƏ</b> tərəfindən hazırlanan rəqamsal məkanda yaşayır.
-                </div>
-
-                <div class="quote-card">
-                    <i class="fas fa-quote-left"></i>
-                    <h3 id="daily-quote">"Beşiktaşlı olmaq bir imtiyazdır."</h3>
-                    <p style="margin-top: 10px; color: #aaa;">- Süleyman Seba</p>
+                <div class="card" style="background:#000; color:white; text-align:center; border: 2px solid var(--bjk-red);">
+                    <p style="font-family:'Oswald'; letter-spacing:1px; font-size:0.9rem;">1903-DƏN SÖNMƏYƏN MƏŞƏL, RƏSUL MƏMMƏDZADƏ TƏRƏFİNDƏN HAZIRLANIB.</p>
                 </div>
             </div>
 
             <div class="sidebar">
-                <div class="card fan-gold-card">
-                    <h3 style="margin-bottom: 15px;"><i class="fas fa-trophy"></i> Reytinq</h3>
-                    <p style="font-size:0.7rem; margin-bottom:10px;">AYIN SONU İLK 3-Ə FORMA!</p>
-                    <table class="fan-table" style="width: 100%;">
-                        <tr class="top-fan"><td>1. Rəsul M.</td><td>45 Xal</td></tr>
-                        <tr class="top-fan"><td>2. Umid A.</td><td>42 Xal</td></tr>
-                        <tr class="top-fan"><td>3. Kenan K.</td><td>38 Xal</td></tr>
-                        <tr><td>4. Murad V.</td><td>30 Xal</td></tr>
-                        <tr><td>5. Elvin Q.</td><td>25 Xal</td></tr>
-                    </table>
+                <div class="card">
+                    <h3 class="section-title" style="font-size:1.1rem;"><i class="fas fa-trophy"></i> Reytinq</h3>
+                    <ul style="list-style:none; font-size:0.9rem;">
+                        <li style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #eee;"><span>1. Rəsul M.</span> <b>45 Xal</b></li>
+                        <li style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #eee;"><span>2. Umid A.</span> <b>42 Xal</b></li>
+                        <li style="display:flex; justify-content:space-between; padding:5px 0;"><span>3. Kenan K.</span> <b>38 Xal</b></li>
+                    </ul>
                 </div>
 
-                <div class="card match-card">
-                    <h3 style="color: var(--bjk-red);">NÖVBƏTİ OYUN</h3>
-                    <div class="countdown" id="bjk-timer">
-                        <div class="time-box"><span id="d">0</span><small>G</small></div>
-                        <div class="time-box"><span id="h">0</span><small>S</small></div>
-                        <div class="time-box"><span id="m">0</span><small>D</small></div>
-                        <div class="time-box"><span id="s">0</span><small>Sn</small></div>
+                <div class="card" style="background:#000; color:white; text-align:center;">
+                    <h4 style="color:var(--bjk-red); margin-bottom:10px; font-family:'Oswald';">NÖVBƏTİ OYUN</h4>
+                    <div style="display:flex; justify-content:center; gap:8px;">
+                        <div class="time-box">3<br><small>G</small></div>
+                        <div class="time-box">18<br><small>S</small></div>
+                        <div class="time-box">45<br><small>D</small></div>
                     </div>
-                    <p style="margin-top:10px; font-size:0.9rem; font-weight: bold;">Başakşehir vs Beşiktaş</p>
-                    <p style="font-size:0.7rem; color: #ccc;">15 Fevral, 20:00</p>
+                    <p style="font-size:0.7rem; margin-top:10px; color:#aaa;">Beşiktaş vs Başakşehir</p>
                 </div>
 
-                <div id="table" class="card">
-                    <h3 style="margin-bottom: 15px;"><i class="fas fa-list-ol"></i> Turnir Cədvəli</h3>
-                    <table style="width:100%; font-size: 0.9rem; border-collapse: collapse; text-align: left;">
-                        <thead>
-                            <tr style="border-bottom: 2px solid var(--bjk-red); height: 35px; color: gray;">
-                                <th>Sıra</th>
-                                <th>Klub</th>
-                                <th>O</th>
-                                <th>X</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1.</td><td>GS</td><td>21</td><td>52</td></tr>
-                            <tr><td>2.</td><td>FB</td><td>21</td><td>49</td></tr>
-                            <tr style="background: rgba(231, 76, 60, 0.2); font-weight: bold; border-left: 4px solid var(--bjk-red);">
-                                <td>5.</td><td>BJK</td><td>21</td><td>37</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="card" style="text-align: center; background: #000; border: 2px solid var(--bjk-red); padding: 20px;">
-                    <i class="fas fa-fire" style="font-size: 2rem; color: var(--bjk-red); margin-bottom: 10px;"></i>
-                    <h3 style="color: white; font-family: 'Oswald', sans-serif; margin-bottom: 15px;">MƏŞƏLİ YANDIR!</h3>
-                    <button onclick="yandir()" style="background: var(--bjk-red); color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 15px var(--bjk-red); transition: 0.3s; width: 100%;">
-                        ALOVLANDIR 🦅
-                    </button>
+                <div class="card" style="text-align:center; background:#000; border:2px solid var(--bjk-red);">
+                    <h4 style="color:white; margin-bottom:10px; font-family:'Oswald';">MƏŞƏLİ YANDIR!</h4>
+                    <button onclick="yandir()" style="background:var(--bjk-red); color:white; border:none; padding:12px; border-radius:50px; cursor:pointer; font-weight:bold; width:100%; box-shadow: 0 0 15px var(--bjk-red);">ALOVLANDIR 🦅</button>
                 </div>
             </div>
 
@@ -279,103 +131,60 @@
     </div>
 
     <footer>
-        <div style="font-size: 2rem; margin-bottom: 10px;">🦅</div>
-        <p>Hər Zaman, Hər Yerdə Ən Böyük Beşiktaş!</p>
-        <span class="footer-creator">Yaradıcı: RƏSUL MƏMMƏDZADƏ</span>
+        <p>© 2026 Beşiktaş JK Digital Fan Portal</p>
+        <p style="color:var(--bjk-red); font-weight:bold; margin-top:5px; font-size:1.1rem;">Created by RƏSUL MƏMMƏDZADƏ</p>
     </footer>
 
     <script>
-        function openLogin() { handleLogin(); }
-        function handleLogin() {
+        // Preloader - 2 saniyə sonra yox olur
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 1000);
+            }, 2000);
+        });
+
+        // Daxil Ol funksiyası
+        function openLogin() {
             document.getElementById('auth-btn').innerText = "RƏSUL M.";
             document.getElementById('locked-content').style.display = "none";
             document.getElementById('active-content').style.display = "block";
+            updateVote();
         }
-        function changeVideo(id) { document.getElementById('main-video').src = "https://www.youtube.com/embed/" + id + "?autoplay=1"; }
-        
-        const themeBtn = document.getElementById('theme-btn');
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
-        });
 
-        // Geri sayım
-        const targetDate = new Date("Feb 15, 2026 20:00:00").getTime();
-        const timerInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const gap = targetDate - now;
-            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
-
-            document.getElementById("d").innerText = Math.floor(gap / day);
-            document.getElementById("h").innerText = Math.floor((gap % day) / hour);
-            document.getElementById("m").innerText = Math.floor((gap % hour) / minute);
-            document.getElementById("s").innerText = Math.floor((gap % minute) / second);
-
-            if (gap <= 0) {
-                clearInterval(timerInterval);
-                document.getElementById("bjk-timer").innerHTML = "<h3>MATÇ BAŞLADI! 🦅</h3>";
-            }
-        }, 1000);
-
-        // Məşəl (Confetti)
+        // Məşəl (Konfeti)
         function yandir() {
-            var colors = ['#000000', '#ffffff', '#e74c3c'];
-            var end = Date.now() + (2 * 1000);
-            (function frame() {
-                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: colors });
-                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: colors });
-                if (Date.now() < end) requestAnimationFrame(frame);
-            }());
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#ffffff', '#000000', '#e74c3c'] });
         }
-        function updateVoteStatus() {
-    const now = new Date();
-    const gameStart = new Date("Feb 15, 2026 20:00:00");
-    const gameEnd = new Date("Feb 15, 2026 22:00:00"); 
 
-    const statusText = document.getElementById("vote-status");
-    const voteBtn = document.getElementById("vote-submit-btn");
+        // Xal Sistemi Vaxt Yoxlaması
+        function updateVote() {
+            const now = new Date();
+            const start = new Date("Feb 15, 2026 20:00:00");
+            const end = new Date("Feb 15, 2026 22:00:00");
+            const btn = document.getElementById("vote-submit-btn");
+            const status = document.getElementById("vote-status");
 
-    if (!statusText || !voteBtn) return; // Səhv olmaması üçün yoxlama
+            if (!status) return;
 
-    if (now >= gameStart && now < gameEnd) {
-        statusText.innerText = "⚽ MATÇ DAVAM EDİR! Xalınızı qazanın.";
-        statusText.style.color = "#2ecc71"; 
-        voteBtn.disabled = false;
-        voteBtn.style.opacity = "1";
-        voteBtn.style.cursor = "pointer";
-    } else if (now >= gameEnd) {
-        statusText.innerText = "🚫 MATÇ BİTDİ! Sistem qapandı.";
-        statusText.style.color = "gray";
-        voteBtn.disabled = true;
-        voteBtn.style.opacity = "0.5";
-    } else {
-        statusText.innerText = "🕒 Xal sistemi matç vaxtı açılacaq.";
-        statusText.style.color = "#e74c3c";
-        voteBtn.disabled = true;
-        voteBtn.style.opacity = "0.5";
-    }
-}
-setInterval(updateVoteStatus, 1000);
-updateVoteStatus();
-        // Səsləri oxutmaq üçün funksiya
-function sesPleyer(link) {
-    let audio = new Audio(link);
-    audio.volume = 0.5; // Səs səviyyəsi (0.0 - 1.0 arası)
-    audio.play();
-}
-        // Sayt yükləndikdən 2 saniyə sonra açılış ekranını sil
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        const loader = document.getElementById('loader');
-        loader.style.opacity = '0'; // Yavaşca şəffaflaşsın
-        setTimeout(() => {
-            loader.style.display = 'none'; // Tamamilə yoxa çıxsın
-        }, 1000);
-    }, 2000); // 2 saniyə (2000ms) gözləsin
-});
+            if (now >= start && now < end) {
+                status.innerText = "⚽ MATÇ BAŞLADI! XALINI AL.";
+                status.style.color = "green";
+                btn.disabled = false; btn.style.opacity = "1";
+            } else {
+                status.innerText = "🕒 SİSTEM MATÇ VAXTI AÇILACAQ";
+                status.style.color = "black";
+                btn.disabled = true; btn.style.opacity = "0.5";
+            }
+        }
+        setInterval(updateVote, 1000);
+
+        // Qaranlıq Rejim
+        document.getElementById('theme-btn').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.getElementById('theme-btn').innerText = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
+        });
     </script>
 </body>
 </html>
-
-
-
