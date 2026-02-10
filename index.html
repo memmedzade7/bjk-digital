@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BJK Digital | Created by RƏSUL MƏMMƏDZADƏ</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -265,6 +266,13 @@
 
         </div>
     </div>
+    <div class="card" style="text-align: center; background: #000; border: 2px solid var(--bjk-red); padding: 20px;">
+    <i class="fas fa-fire" style="font-size: 2rem; color: var(--bjk-red); margin-bottom: 10px;"></i>
+    <h3 style="color: white; font-family: 'Oswald', sans-serif; margin-bottom: 15px;">MƏŞƏLİ YANDIR!</h3>
+    <button onclick="yandir()" style="background: var(--bjk-red); color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 15px var(--bjk-red); transition: 0.3s;">
+        ALOVLANDIR 🦅
+    </button>
+</div>
 
     <footer>
         <div style="font-size: 2rem; margin-bottom: 10px;">🦅</div>
@@ -315,9 +323,37 @@ const timerInterval = setInterval(function() {
         document.getElementById("bjk-timer").innerHTML = "<h3>MATÇ BAŞLADI! 🦅</h3>";
     }
 }, 1000);
+        function yandir() {
+    // Beşiktaş rəngləri: Qara, Ağ, Qırmızı
+    var colors = ['#000000', '#ffffff', '#e74c3c'];
+    
+    var end = Date.now() + (2 * 1000); // 2 saniyə davam etsin
+
+    (function frame() {
+        confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors
+        });
+        confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+}
     </script>
 </body>
 </html>
+
 
 
 
