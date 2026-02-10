@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJK Digital | Created by RƏSUL MƏMMƏDZADƏ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bjk-black: #000000;
+            --bjk-white: #ffffff;
+            --bjk-red: #e74c3c;
+            --bjk-gold: #f1c40f;
+            --bg-color: #f0f2f5;
+            --text-color: #1a1a1a;
+            --card-bg: #ffffff;
+            --card-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode {
+            --bg-color: #0b0c10;
+            --text-color: #c5c6c7;
+            --card-bg: #1f2833;
+            --bjk-white: #1f2833;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Poppins', sans-serif; transition: 0.4s; padding-top: 80px; overflow-x: hidden; }
+
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+            border-bottom: 3px solid var(--bjk-red);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h2 { color: #ffffff !important; font-family: 'Oswald', sans-serif; font-size: 1.6rem; text-transform: uppercase; }
+        .creator-tag { color: var(--bjk-red); font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; display: block; }
+
+        .nav-links { display: flex; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; margin-bottom: 40px;
+            border-bottom: 5px solid var(--bjk-red);
+        }
+
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 5px; text-shadow: 2px 2px 20px rgba(0,0,0,0.8); }
+        .hero p { font-size: 1.5rem; font-weight: 400; color: var(--bjk-red); font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 3px; }
+
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+        .section-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+
+        .card { background: var(--card-bg); border-radius: 15px; padding: 25px; box-shadow: var(--card-shadow); margin-bottom: 25px; position: relative; transition: 0.3s; }
+        .card:hover { transform: translateY(-3px); }
+        .section-title { font-family: 'Oswald', sans-serif; font-size: 1.8rem; margin-bottom: 20px; border-left: 5px solid var(--bjk-red); padding-left: 15px; text-transform: uppercase; }
+
+        .fan-gold-card { 
+            background: linear-gradient(135deg, #f1c40f, #f39c12) !important; 
+            color: black !important;
+            border: none;
+        }
+        .fan-gold-card .section-title { border-left-color: black; color: black; }
+        .fan-gold-card p, .fan-gold-card .top-fan { color: black !important; font-weight: bold; }
+        .fan-table tr { border-bottom: 1px solid rgba(0,0,0,0.1); }
+
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .playlist { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .play-btn { background: #000; color: white; border: none; padding: 10px 18px; border-radius: 5px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; font-weight: 600; }
+        .play-btn:hover { background: var(--bjk-red); }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin: 20px 0; }
+        .info-box { background: rgba(0,0,0,0.03); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid transparent; transition: 0.3s; }
+        .info-box i { font-size: 1.5rem; color: var(--bjk-red); margin-bottom: 8px; }
+
+        .quote-card { background: var(--bjk-black); color: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 25px; border-right: 8px solid var(--bjk-red); }
+        .quote-card i { font-size: 1.8rem; color: var(--bjk-red); margin-bottom: 10px; }
+
+        .vote-btn { background: var(--bjk-black); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
+        
+        .match-card { background: var(--bjk-black); color: white; text-align: center; border-bottom: 5px solid var(--bjk-red); }
+        .countdown { display: flex; justify-content: center; gap: 10px; margin: 15px 0; }
+        .time-box { background: var(--bjk-red); padding: 10px; border-radius: 8px; min-width: 60px; color: white; }
+
+        /* YENİ ƏLAVƏ EDİLƏN MƏŞƏL BLOKU */
+        .meshel-banner {
+            background: var(--bjk-black);
+            color: var(--bjk-white);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 2px solid var(--bjk-red);
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer { background: #000; color: white; text-align: center; padding: 50px 20px; margin-top: 60px; }
+        .footer-creator { color: var(--bjk-red); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>BEŞİKTAŞ <span style="color:var(--bjk-red)">JK</span></h2>
+                <span class="creator-tag">CREATED BY RƏSUL MƏMMƏDZADƏ</span>
+            </div>
+            <div class="nav-links">
+                <a href="#video">MEDİA</a>
+                <a href="#info">KLUB</a>
+                <button onclick="openLogin()" id="auth-btn" style="background:white; color:black; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold; margin-left:20px;">DAXİL OL</button>
+                <button id="theme-btn">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1><b>BEŞİKTAŞ</b></h1>
+        <p>Qara zindanlarda ağ ümidlər!</p>
+    </section>
+
+    <div class="container">
+        <div class="section-grid">
+            
+            <div class="main-content">
+                <div class="card fan-gold-card">
+                    <h2 class="section-title">Azarkeş Paneli</h2>
+                    <div id="locked-content">
+                        <p style="text-align:center; padding:15px; background:rgba(255,255,255,0.3); border-radius:10px;">Xal toplamaq üçün giriş edin.</p>
+                    </div>
+                    <div id="active-content" style="display:none;">
+                        <p>Oyunu haradan izləyirsiniz?</p>
+                        <select id="vote-select" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:none;">
+                            <option value="3">TV (3 Xal)</option>
+                            <option value="5">Stadion (5 Xal)</option>
+                        </select>
+                        <button class="vote-btn" onclick="alert('Xalınız əlavə edildi!')">XALI QAZAN</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 id="video" class="section-title">Media Mərkəzi</h2>
+                    <div class="video-wrapper">
+                        <iframe id="main-video" src="https://www.youtube.com/embed/GDnaQ0s1yAo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="playlist">
+                        <button class="play-btn" onclick="changeVideo('GDnaQ0s1yAo')">Gücünə Güc Qatmağa</button>
+                        <button class="play-btn" onclick="changeVideo('VqGv2xM8RkI')">Qara Qartal</button>
+                        <button class="play-btn" onclick="changeVideo('_J7H-7-wN70')">Çarşı Marşı</button>
+                    </div>
+                </div>
+                
+                <div id="info" class="card">
+                    <h2 class="section-title">Klub İnformasiyası</h2>
+                    <div class="info-grid">
+                        <div class="info-box"><i class="fas fa-landmark"></i><h4>Stadion</h4><p>Tüpraş Stadyumu</p></div>
+                        <div class="info-box"><i class="fas fa-user-tie"></i><h4>Prezident</h4><p>Serdal Adalı</p></div>
+                        <div class="info-box"><i class="fas fa-palette"></i><h4>Rənglər</h4><p>Qara - Ağ</p></div>
+                        <div class="info-box"><i class="fas fa-dove"></i><h4>Ləqəb</h4><p>Qara Qartallar</p></div>
+                    </div>
+                </div>
+
+                <div class="meshel-banner">
+                    <i class="fas fa-fire" style="color: var(--bjk-red); margin-right: 10px;"></i>
+                    1903-dən sönməyən məşəl,<b>RƏSUL MƏMMƏDZADƏ</b> tərəfindən hazırlanan rəqamsal məkanda yaşayır.              </div>
+
+                <div class="quote-card">
+                    <i class="fas fa-quote-left"></i>
+                    <h3 id="daily-quote">"Beşiktaşlı olmaq bir imtiyazdır."</h3>
+                    <p style="margin-top: 10px; color: #aaa;">- Süleyman Seba</p>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="card fan-gold-card">
+                    <h3 style="margin-bottom: 15px;"><i class="fas fa-trophy"></i> Reytinq</h3>
+                    <p style="font-size:0.7rem; margin-bottom:10px;">AYIN SONU İLK 3-Ə FORMA!</p>
+                    <table class="fan-table" style="width: 100%;">
+                        <tr class="top-fan"><td>1. Rəsul M.</td><td>45 Xal</td></tr>
+                        <tr class="top-fan"><td>2. Umid A.</td><td>42 Xal</td></tr>
+                        <tr class="top-fan"><td>3. Kenan K.</td><td>38 Xal</td></tr>
+                        <tr><td>4. Murad V.</td><td>30 Xal</td></tr>
+                        <tr><td>5. Elvin Q.</td><td>25 Xal</td></tr>
+                    </table>
+                </div>
+
+                <div class="card match-card">
+                    <h3 style="color: var(--bjk-red);">NÖVBƏTİ OYUN</h3>
+                    <div class="countdown">
+                        <div class="time-box"><span id="days">3</span><small>G</small></div>
+                        <div class="time-box"><span id="hours">15</span><small>S</small></div>
+                    </div>
+                    <p style="margin-top:10px; font-size:0.8rem;">Başakşehir vs Beşiktaş</p>
+                </div>
+
+                <div id="table" class="card">
+                    <h3 style="margin-bottom: 15px;">🏆 Cədvəl</h3>
+                    <table style="width:100%; font-size: 0.8rem; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #eee; height: 30px;"><td>1. GS</td><td>21</td><td><strong>52</strong></td></tr>
+                        <tr style="border-bottom: 1px solid #eee; height: 30px;"><td>2. FB</td><td>21</td><td><strong>49</strong></td></tr>
+                        <tr style="background: rgba(231, 76, 60, 0.1); font-weight:bold;"><td>4. BJK</td><td>21</td><td><strong>37</strong></td></tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div style="font-size: 2rem; margin-bottom: 10px;">🦅</div>
+        <p>Hər Zaman, Hər Yerdə Ən Böyük Beşiktaş!</p>
+        <span class="footer-creator">Yaradıcı: RƏSUL MƏMMƏDZADƏ</span>
+    </footer>
+
+    <script>
+        function openLogin() { handleLogin(); }
+        function handleLogin() {
+            document.getElementById('auth-btn').innerText = "RƏSUL M.";
+            document.getElementById('locked-content').style.display = "none";
+            document.getElementById('active-content').style.display = "block";
+        }
+        function changeVideo(id) { document.getElementById('main-video').src = "https://www.youtube.com/embed/" + id + "?autoplay=1"; }
+        
+        const themeBtn = document.getElementById('theme-btn');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
+        });
+    </script>
+</body>
+</html>
