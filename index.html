@@ -121,7 +121,19 @@
     </style>
 </head>
 <body>
+<div id="loader" style="position: fixed; width: 100%; height: 100vh; background: #000; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 1s;">
+    <h1 style="color: white; font-family: 'Oswald', sans-serif; font-size: 8rem; letter-spacing: 15px; margin: 0; text-shadow: 0 0 30px rgba(255,255,255,0.5);">1903</h1>
+    <div style="width: 50px; height: 3px; background: #e74c3c; margin: 20px 0; animation: scaleLine 2s infinite;"></div>
+    <p style="color: #aaa; font-family: 'Oswald', sans-serif; letter-spacing: 5px; text-transform: uppercase;">Qara Qartal Digital</p>
+</div>
 
+<style>
+@keyframes scaleLine {
+    0% { width: 0; }
+    50% { width: 200px; }
+    100% { width: 0; }
+}
+</style>
     <header>
         <nav>
             <div class="logo">
@@ -151,14 +163,17 @@
                     <div id="locked-content">
                         <p style="text-align:center; padding:15px; background:rgba(255,255,255,0.3); border-radius:10px;">Xal toplamaq üçün giriş edin.</p>
                     </div>
-                    <div id="active-content" style="display:none;">
-                        <p>Oyunu haradan izləyirsiniz?</p>
-                        <select id="vote-select" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:none;">
-                            <option value="3">TV (3 Xal)</option>
-                            <option value="5">Stadion (5 Xal)</option>
-                        </select>
-                        <button class="vote-btn" onclick="alert('Xalınız əlavə edildi!')">XALI QAZAN</button>
-                    </div>
+                   <div id="active-content" style="display:none;">
+    <p id="vote-status" style="font-weight: bold; margin-bottom: 10px; color: var(--bjk-red);"></p>
+    <p>Oyunu haradan izləyirsiniz?</p>
+    <select id="vote-select" style="width:100%; padding:10px; margin-top:10px; border-radius:5px; border:none;">
+        <option value="3">TV (3 Xal)</option>
+        <option value="5">Stadion (5 Xal)</option>
+    </select>
+    <button id="vote-submit-btn" class="vote-btn" onclick="checkAndVote()" disabled style="opacity: 0.5; cursor: not-allowed;">
+        XALI QAZAN
+    </button>
+</div>
                 </div>
 
                 <div class="card">
@@ -171,6 +186,13 @@
                         <button class="play-btn" onclick="changeVideo('VqGv2xM8RkI')">Qara Qartal</button>
                         <button class="play-btn" onclick="changeVideo('_J7H-7-wN70')">Çarşı Marşı</button>
                     </div>
+                    <div style="margin-top: 25px; border-top: 1px dashed #ccc; padding-top: 15px;">
+    <h4 style="font-family: 'Oswald', sans-serif; margin-bottom: 10px;"><i class="fas fa-volume-up"></i> AZARKEŞ SƏSİ</h4>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="play-btn" onclick="playSlogan('https://www.soundjay.com/buttons/sounds/button-3.mp3')" style="background: #222;">🥁 Təbil Səsi</button>
+        <button class="play-btn" onclick="playSlogan('https://www.myinstants.com/media/sounds/air-horn-club-sample_1.mp3')" style="background: #c0392b;">📣 Tribuna Karnayı</button>
+    </div>
+</div>
                 </div>
                 
                 <div id="info" class="card">
@@ -302,6 +324,63 @@
                 if (Date.now() < end) requestAnimationFrame(frame);
             }());
         }
+      function updateVoteStatus() {
+    const now = new Date();
+    // Oyunun başlama və bitmə vaxtını saniyəsinə qədər təyin edirik
+    const gameStart = new Date("Feb 15, 2026 20:00:00");
+    const gameEnd = new Date("Feb 15, 2026 22:00:00"); 
+
+    const statusText = document.getElementById("vote-status");
+    const voteBtn = document.getElementById("vote-submit-btn");
+
+    if (now >= gameStart && now < gameEnd) {
+        // Yalnız bu zaman kəsiyində düymə aktiv olur
+        statusText.innerText = "⚽ MATÇ DAVAM EDİR! Xalınızı indi qazanın.";
+        statusText.style.color = "#2ecc71"; // Yaşıl rəng
+        voteBtn.disabled = false;
+        voteBtn.style.opacity = "1";
+        voteBtn.style.cursor = "pointer";
+        voteBtn.style.boxShadow = "0 0 15px #e74c3c";
+    } else if (now >= gameEnd) {
+        // Oyun bitən kimi bura keçir
+        statusText.innerText = "🚫 MATÇ BİTDİ! Xal sistemi qapandı.";
+        statusText.style.color = "gray";
+        voteBtn.disabled = true;
+        voteBtn.style.opacity = "0.5";
+        voteBtn.style.cursor = "not-allowed";
+        voteBtn.style.boxShadow = "none";
+    } else {
+        // Oyun hələ başlamayıbsa
+        statusText.innerText = "🕒 Xal sistemi matç vaxtı aktivləşəcək.";
+        statusText.style.color = "var(--bjk-red)";
+        voteBtn.disabled = true;
+        voteBtn.style.opacity = "0.5";
+        voteBtn.style.cursor = "not-allowed";
+    }
+}
+
+// Saniyəbəsaniyə yoxlama (Gecikmə olmaması üçün)
+setInterval(updateVoteStatus, 1000);
+
+// Səhifə yüklənəndə dərhal işə düşsün
+window.onload = function() {
+    updateVoteStatus();
+};
+        function playSlogan(url) {
+    var audio = new Audio(url);
+    audio.play();
+}
+        // Sayt yükləndikdən 2 saniyə sonra açılış ekranını sil
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0'; // Yavaşca şəffaflaşsın
+        setTimeout(() => {
+            loader.style.display = 'none'; // Tamamilə yoxa çıxsın
+        }, 1000);
+    }, 2000); // 2 saniyə (2000ms) gözləsin
+});
     </script>
 </body>
 </html>
+
