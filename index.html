@@ -103,7 +103,6 @@
         .countdown { display: flex; justify-content: center; gap: 10px; margin: 15px 0; }
         .time-box { background: var(--bjk-red); padding: 10px; border-radius: 8px; min-width: 60px; color: white; }
 
-        /* YENİ ƏLAVƏ EDİLƏN MƏŞƏL BLOKU */
         .meshel-banner {
             background: var(--bjk-black);
             color: var(--bjk-white);
@@ -186,7 +185,8 @@
 
                 <div class="meshel-banner">
                     <i class="fas fa-fire" style="color: var(--bjk-red); margin-right: 10px;"></i>
-                    1903-dən sönməyən məşəl,<b>RƏSUL MƏMMƏDZADƏ</b> tərəfindən hazırlanan rəqamsal məkanda yaşayır.              </div>
+                    1903-dən sönməyən məşəl, <b>RƏSUL MƏMMƏDZADƏ</b> tərəfindən hazırlanan rəqamsal məkanda yaşayır.
+                </div>
 
                 <div class="quote-card">
                     <i class="fas fa-quote-left"></i>
@@ -209,70 +209,49 @@
                 </div>
 
                 <div class="card match-card">
-    <h3 style="color: var(--bjk-red);">NÖVBƏTİ OYUN</h3>
-    <div class="countdown" id="bjk-timer">
-        <div class="time-box"><span id="d">0</span><small>G</small></div>
-        <div class="time-box"><span id="h">0</span><small>S</small></div>
-        <div class="time-box"><span id="m">0</span><small>D</small></div>
-        <div class="time-box"><span id="s">0</span><small>Sn</small></div>
-    </div>
-    <p style="margin-top:10px; font-size:0.9rem; font-weight: bold;">Başakşehir vs Beşiktaş</p>
-    <p style="font-size:0.7rem; color: #ccc;">15 Fevral, 20:00</p>
-</div>       
+                    <h3 style="color: var(--bjk-red);">NÖVBƏTİ OYUN</h3>
+                    <div class="countdown" id="bjk-timer">
+                        <div class="time-box"><span id="d">0</span><small>G</small></div>
+                        <div class="time-box"><span id="h">0</span><small>S</small></div>
+                        <div class="time-box"><span id="m">0</span><small>D</small></div>
+                        <div class="time-box"><span id="s">0</span><small>Sn</small></div>
+                    </div>
+                    <p style="margin-top:10px; font-size:0.9rem; font-weight: bold;">Başakşehir vs Beşiktaş</p>
+                    <p style="font-size:0.7rem; color: #ccc;">15 Fevral, 20:00</p>
                 </div>
-<div id="table" class="card">
-    <h3 style="margin-bottom: 15px;"><i class="fas fa-list-ol"></i> Turnir Cədvəli</h3>
-    <table style="width:100%; font-size: 0.9rem; border-collapse: collapse; text-align: left;">
-        <thead>
-            <tr style="border-bottom: 2px solid var(--bjk-red); height: 35px; color: gray;">
-                <th>Sıra</th>
-                <th>Komanda</th>
-                <th>O</th>
-                <th>Xal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid rgba(0,0,0,0.05); height: 40px;">
-                <td>1.</td>
-                <td>Galatasaray</td>
-                <td>21</td>
-                <td><strong>52</strong></td>
-            </tr>
-            <tr style="border-bottom: 1px solid rgba(0,0,0,0.05); height: 40px;">
-                <td>2.</td>
-                <td>Fenerbahçe</td>
-                <td>21</td>
-                <td><strong>49</strong></td>
-            </tr>
-            
-            <tr style="border-bottom: 1px solid rgba(0,0,0,0.05); height: 40px;">
-                <td>3.</td>
-                <td>Trabzonspor</td>
-                <td>21</td>
-                <td><strong>45</strong></td>
-            </tr>
-             <tr style="background: rgba(231, 76, 60, 0.2); font-weight: bold; border-left: 4px solid var(--bjk-red); height: 40px;">
-                <td style="padding-left: 5px;">5.</td>
-                <td>BEŞİKTAŞ</td>
-                <td>21</td>
-                <td><strong>37</strong>
-                </td>
-        </tbody>
-    </table>
-    <p style="font-size: 0.7rem; color: #888; margin-top: 10px; text-align: center;">* Son yenilənmə: Bu gün</p>
-</div>
-               
+
+                <div id="table" class="card">
+                    <h3 style="margin-bottom: 15px;"><i class="fas fa-list-ol"></i> Turnir Cədvəli</h3>
+                    <table style="width:100%; font-size: 0.9rem; border-collapse: collapse; text-align: left;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--bjk-red); height: 35px; color: gray;">
+                                <th>Sıra</th>
+                                <th>Klub</th>
+                                <th>O</th>
+                                <th>X</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1.</td><td>GS</td><td>21</td><td>52</td></tr>
+                            <tr><td>2.</td><td>FB</td><td>21</td><td>49</td></tr>
+                            <tr style="background: rgba(231, 76, 60, 0.2); font-weight: bold; border-left: 4px solid var(--bjk-red);">
+                                <td>5.</td><td>BJK</td><td>21</td><td>37</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card" style="text-align: center; background: #000; border: 2px solid var(--bjk-red); padding: 20px;">
+                    <i class="fas fa-fire" style="font-size: 2rem; color: var(--bjk-red); margin-bottom: 10px;"></i>
+                    <h3 style="color: white; font-family: 'Oswald', sans-serif; margin-bottom: 15px;">MƏŞƏLİ YANDIR!</h3>
+                    <button onclick="yandir()" style="background: var(--bjk-red); color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 15px var(--bjk-red); transition: 0.3s; width: 100%;">
+                        ALOVLANDIR 🦅
+                    </button>
+                </div>
             </div>
 
         </div>
     </div>
-    <div class="card" style="text-align: center; background: #000; border: 2px solid var(--bjk-red); padding: 20px;">
-    <i class="fas fa-fire" style="font-size: 2rem; color: var(--bjk-red); margin-bottom: 10px;"></i>
-    <h3 style="color: white; font-family: 'Oswald', sans-serif; margin-bottom: 15px;">MƏŞƏLİ YANDIR!</h3>
-    <button onclick="yandir()" style="background: var(--bjk-red); color: white; border: none; padding: 12px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 0 15px var(--bjk-red); transition: 0.3s;">
-        ALOVLANDIR 🦅
-    </button>
-</div>
 
     <footer>
         <div style="font-size: 2rem; margin-bottom: 10px;">🦅</div>
@@ -294,69 +273,35 @@
             document.body.classList.toggle('dark-mode');
             themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
         });
-        // Geri sayım funksiyası
-const targetDate = new Date("Feb 15, 2026 20:00:00").getTime();
 
-const timerInterval = setInterval(function() {
-    const now = new Date().getTime();
-    const gap = targetDate - now;
+        // Geri sayım
+        const targetDate = new Date("Feb 15, 2026 20:00:00").getTime();
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const gap = targetDate - now;
+            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
 
-    // Vaxt hesablamaları
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
+            document.getElementById("d").innerText = Math.floor(gap / day);
+            document.getElementById("h").innerText = Math.floor((gap % day) / hour);
+            document.getElementById("m").innerText = Math.floor((gap % hour) / minute);
+            document.getElementById("s").innerText = Math.floor((gap % minute) / second);
 
-    const textDay = Math.floor(gap / day);
-    const textHour = Math.floor((gap % day) / hour);
-    const textMinute = Math.floor((gap % hour) / minute);
-    const textSecond = Math.floor((gap % minute) / second);
+            if (gap <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById("bjk-timer").innerHTML = "<h3>MATÇ BAŞLADI! 🦅</h3>";
+            }
+        }, 1000);
 
-    // Ekrana yazdır
-    document.getElementById("d").innerText = textDay;
-    document.getElementById("h").innerText = textHour;
-    document.getElementById("m").innerText = textMinute;
-    document.getElementById("s").innerText = textSecond;
-
-    if (gap <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById("bjk-timer").innerHTML = "<h3>MATÇ BAŞLADI! 🦅</h3>";
-    }
-}, 1000);
+        // Məşəl (Confetti)
         function yandir() {
-    // Beşiktaş rəngləri: Qara, Ağ, Qırmızı
-    var colors = ['#000000', '#ffffff', '#e74c3c'];
-    
-    var end = Date.now() + (2 * 1000); // 2 saniyə davam etsin
-
-    (function frame() {
-        confetti({
-            particleCount: 3,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: colors
-        });
-        confetti({
-            particleCount: 3,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: colors
-        });
-
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
+            var colors = ['#000000', '#ffffff', '#e74c3c'];
+            var end = Date.now() + (2 * 1000);
+            (function frame() {
+                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: colors });
+                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: colors });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
         }
-    }());
-}
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
