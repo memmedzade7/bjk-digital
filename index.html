@@ -28,7 +28,19 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Poppins', sans-serif; transition: 0.4s; padding-top: 80px; overflow-x: hidden; }
+<div id="loader" style="position: fixed; width: 100%; height: 100vh; background: #000; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 1s;">
+    <h1 style="color: white; font-family: 'Oswald', sans-serif; font-size: 8rem; letter-spacing: 15px; margin: 0; text-shadow: 0 0 30px rgba(255,255,255,0.5);">1903</h1>
+    <div style="width: 50px; height: 3px; background: #e74c3c; margin: 20px 0; animation: scaleLine 2s infinite;"></div>
+    <p style="color: #aaa; font-family: 'Oswald', sans-serif; letter-spacing: 5px; text-transform: uppercase;">Qara Qartal Digital</p>
+</div>
 
+<style>
+@keyframes scaleLine {
+    0% { width: 0; }
+    50% { width: 200px; }
+    100% { width: 0; }
+}
+</style>
         header {
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
@@ -351,8 +363,19 @@ function sesPleyer(link) {
     audio.volume = 0.5; // Səs səviyyəsi (0.0 - 1.0 arası)
     audio.play();
 }
+        // Sayt yükləndikdən 2 saniyə sonra açılış ekranını sil
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0'; // Yavaşca şəffaflaşsın
+        setTimeout(() => {
+            loader.style.display = 'none'; // Tamamilə yoxa çıxsın
+        }, 1000);
+    }, 2000); // 2 saniyə (2000ms) gözləsin
+});
     </script>
 </body>
 </html>
+
 
 
