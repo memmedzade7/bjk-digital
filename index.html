@@ -205,6 +205,10 @@ function submitVote() {
 </script>
                 <div class="card">
                     <h2 id="video" class="section-title">Media Mərkəzi</h2>
+                    <div class="card">
+    <h3 class="section-title">📊 OYUNÇU STATİSTİKALARI</h3>
+    <iframe id="sofascore-squad" src="https://www.sofascore.com/team/football/besiktas/3050/squad/embed" frameborder="0" scrolling="no" style="width:100%; height:600px;"></iframe>
+</div>
                     <div class="video-wrapper">
                         <iframe id="main-video" src="https://www.youtube.com/embed/GDnaQ0s1yAo" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -268,6 +272,10 @@ function submitVote() {
                     <p style="margin-top:10px; font-size:0.9rem; font-weight: bold;">Başakşehir vs Beşiktaş</p>
                     <p style="font-size:0.7rem; color: #ccc;">15 Fevral, 20:00</p>
                 </div>
+                <div class="card">
+    <h3 class="section-title">📅 MATÇ TƏQVİMİ</h3>
+    <iframe id="sofascore-matches" src="https://www.sofascore.com/team/football/besiktas/3050/matches/embed" frameborder="0" scrolling="no" style="width:100%; height:400px;"></iframe>
+</div>
                 <div class="card" style="border-top: 3px solid #000; background: #fff;">
     <h4 style="font-family:'Oswald'; margin-bottom: 10px;"><i class="fas fa-magic"></i> HESABI TƏXMİN ET</h4>
     <p style="font-size: 0.75rem; color: #666; margin-bottom: 10px;">Düzgün tapana +20 Xal!</p>
@@ -314,7 +322,11 @@ function savePrediction() {
                         </tbody>
                     </table>
                 </div>
-
+<div class="card">
+    <h3 class="section-title">🏆 CANLI TURNİR CƏDVƏLİ</h3>
+    <iframe id="sofascore-standings" src="https://www.sofascore.com/tournament/1/52254/standings/tables/embed" frameborder="0" scrolling="no" style="width:100%; height:500px;"></iframe>
+    <p style="font-size:0.6rem; text-align:right; color:#999;">Məlumatlar Sofascore tərəfindən yenilənir</p>
+</div>
                 <div class="card" style="text-align: center; background: #000; border: 2px solid var(--bjk-red); padding: 20px;">
                     <i class="fas fa-fire" style="font-size: 2rem; color: var(--bjk-red); margin-bottom: 10px;"></i>
                     <h3 style="color: white; font-family: 'Oswald', sans-serif; margin-bottom: 15px;">MƏŞƏLİ YANDIR!</h3>
@@ -435,6 +447,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
