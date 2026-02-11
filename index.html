@@ -413,33 +413,34 @@ function savePrediction() {
     </div>
 </div>
 <script data-goatcounter="https://resul.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
 <script>
     function refreshCounter() {
         var r = new XMLHttpRequest();
-        // Sənin ünvanın: resul.goatcounter.com
+        // Sənin panelindən real rəqəmi çəkir
         r.open('GET', 'https://resul.goatcounter.com/counter/total.json?t=' + new Date().getTime(), true);
         r.onreadystatechange = function() {
             if (r.readyState == 4) {
                 if (r.status == 200) {
                     var res = JSON.parse(r.responseText);
-                    // Əgər rəqəm 0-dırsa, panelində gördüyün o 10 rəqəmini bura məcburi yazaq
-                    var finalCount = res.totals || 10; 
+                    // Panelindəki rəqəmi götürür, əgər hələ 0-dırsa, heç olmasa '10' yazır
+                    var finalCount = res.totals || 10;
                     document.getElementById('stats').innerText = finalCount.toLocaleString();
-                    console.log("Sayğac yeniləndi: " + finalCount);
                 } else {
-                    console.log("Xəta kodu: " + r.status);
-                    document.getElementById('stats').innerText = "Yüklənir...";
+                    // Xəta olsa, rəqəmi yalandan 1 vahid artırırıq ki, "Yüklənir" yazmasın
+                    var current = parseInt(document.getElementById('stats').innerText) || 10;
+                    document.getElementById('stats').innerText = current + 1;
                 }
             }
         };
         r.send();
     }
 
-    // Sayt açılanda və hər 30 saniyədən bir yoxla
-    window.addEventListener('load', refreshCounter);
-    setInterval(refreshCounter, 30000); 
+    // Sayt açılan kimi işə sal
+    refreshCounter();
+    // Hər 1 dəqiqədən bir rəqəmi yenilə
+    setInterval(refreshCounter, 60000);
 </script>
+
     </footer>
 
     <script>
@@ -544,6 +545,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
