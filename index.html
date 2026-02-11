@@ -275,47 +275,29 @@
             </div>
 
             <div class="sidebar">
-  <div class="card bjk-live-center">
-    <h3 class="section-title"><i class="fas fa-futball"></i> CANLI MƏRKƏZ</h3>
+  <div class="card bjk-live-container">
+    <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI NƏTİCƏLƏR</h3>
     
-    <div id="ls-widget" data-mLS="true" class="livescore-widget"></div>
-    <script type="text/javascript" src="https://ls.scoreaxis.com/widget/common.js"></script>
-    
-    <div class="live-info">
-        <small><i class="fas fa-info-circle"></i> Oyun yoxdursa, son nəticələr göstərilir.</small>
-    </div>
+    <iframe src="https://www.scorebat.com/embed/livescore/" 
+            allowfullscreen 
+            allow="autoplay; fullscreen" 
+            style="width:100%; height:500px; border:none; background: #111;" 
+            class="_scorebatEmbeddedPlayer_">
+    </iframe>
 </div>
-
 <style>
-    .bjk-live-center {
-        background: #111 !important;
-        border: 1px solid #333;
-        color: white;
-        overflow: hidden;
-    }
+.bjk-live-container {
+    background: #000 !important;
+    border: 1px solid #333;
+    padding: 10px !important;
+    border-radius: 12px;
+}
 
-    /* VİDCETİ GÖRÜNƏN EDƏN HİSSƏ */
-    .livescore-widget {
-        filter: invert(1) brightness(2) contrast(1.2); /* Qaranı ağ edir və parlaqlığı artırır */
-        opacity: 1;
-        min-height: 400px;
-        width: 100%;
-    }
-
-    /* Vidcetin daxilindəki iframe-i məcburi ağ etmək üçün */
-    .livescore-widget iframe {
-        background: transparent !important;
-    }
-
-    .live-info {
-        margin-top: 10px;
-        text-align: center;
-        color: #bbb; /* Yazını bir az açırıq */
-        font-size: 0.75rem;
-        padding: 10px;
-        background: #222;
-    }
-</style>
+.bjk-live-container iframe {
+    filter: invert(0.9) hue-rotate(180deg); /* Yazıları ağartmaq üçün ən təmiz üsul */
+    border-radius: 8px;
+}
+    </style>
                 <div class="card fan-gold-card">
                     <h3 style="margin-bottom: 15px;"><i class="fas fa-trophy"></i> Reytinq</h3>
                     <p style="font-size:0.7rem; margin-bottom:10px;">AYIN SONU İLK 3-Ə FORMA!</p>
@@ -506,6 +488,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
