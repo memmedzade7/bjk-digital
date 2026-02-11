@@ -423,7 +423,7 @@ function savePrediction() {
                 if (r.status == 200) {
                     var res = JSON.parse(r.responseText);
                     // Panelindəki rəqəmi götürür, əgər hələ 0-dırsa, heç olmasa '10' yazır
-                    var finalCount = res.totals || 10;
+                  var finalCount = res.unique || 5;
                     document.getElementById('stats').innerText = finalCount.toLocaleString();
                 } else {
                     // Xəta olsa, rəqəmi yalandan 1 vahid artırırıq ki, "Yüklənir" yazmasın
@@ -545,6 +545,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
