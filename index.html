@@ -118,6 +118,54 @@
 
         footer { background: #000; color: white; text-align: center; padding: 50px 20px; margin-top: 60px; }
         .footer-creator { color: var(--bjk-red); font-weight: bold; font-size: 1.1rem; margin-top: 10px; display: block; }
+        /* --- MOBİL UYĞUNLUQ TƏMİRİ --- */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Menyu üçün yer */
+    }
+
+    .hero {
+        height: 40vh; /* Telefonda şəkli bir az kiçilt */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Yazını telefona uyğunlaşdır */
+        letter-spacing: 2px;
+    }
+
+    /* Əsas magiya: Yan-yana olan hissələri alt-alta salır */
+    .section-grid {
+        grid-template-columns: 1fr !important; 
+        gap: 15px;
+    }
+
+    .container {
+        padding: 0 10px; /* Kənarlardan boşluğu azalt */
+    }
+
+    .card {
+        padding: 15px; /* Kart daxili boşluğu azalt */
+        margin-bottom: 15px;
+    }
+
+    .logo h2 {
+        font-size: 1.2rem; /* Loqonu kiçilt */
+    }
+
+    .nav-links a {
+        display: none; /* Mobil menyu üçün linkləri gizlət və ya kiçilt */
+    }
+
+    /* Videonun telefonda tam oturması üçün */
+    .video-wrapper {
+        border-radius: 8px;
+    }
+    
+    /* Cədvəl və digər iframe-lərin sürüşməməsi üçün */
+    iframe {
+        width: 100% !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -417,6 +465,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
