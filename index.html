@@ -55,14 +55,13 @@
         .nav-links { display: flex; align-items: center; }
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
 
-        .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; margin-bottom: 40px;
-            border-bottom: 5px solid var(--bjk-red);
-        }
+       .hero {
+    height: 60vh; /* Ekranın 60%-ni tutsun */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/vodafone-park-stadium-besiktas-istanbul-stefano-oppo.jpg');
+    background-size: cover; /* Şəkil ekranı tam doldursun */
+    background-position: center; /* Stadion mərkəzdə görünsün */
+}
 
         .hero h1 { font-family: 'Oswald', sans-serif; font-size: 5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 5px; text-shadow: 2px 2px 20px rgba(0,0,0,0.8); }
         .hero p { font-size: 1.5rem; font-weight: 400; color: var(--bjk-red); font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 3px; }
@@ -510,6 +509,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
