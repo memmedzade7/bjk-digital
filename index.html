@@ -148,7 +148,14 @@
             </div>
         </nav>
     </header>
-
+<div class="card" style="background: #111; border: 1px solid var(--bjk-red);">
+    <h4 style="color: white; font-family: 'Oswald'; font-size: 0.8rem; text-align: center; margin-bottom: 10px;">CANLI HESABLAR</h4>
+    <div id="scoreaxis-widget-live" 
+         data-widget="scoreaxis-soccer-live-scores" 
+         data-league="52" 
+         data-teams="3050">
+    </div>
+</div>
     <section class="hero">
         <h1><b>BEŞİKTAŞ</b></h1>
         <p>Qara zindanlarda ağ ümidlər!</p>
@@ -298,7 +305,15 @@ function savePrediction() {
                         </tbody>
                     </table>
                 </div>
-
+<div class="card">
+    <h4 class="section-title" style="font-size: 1.1rem;">🏆 CANLI TURNİR CƏDVƏLİ</h4>
+    <div id="scoreaxis-widget-standings" 
+         data-widget="scoreaxis-soccer-standings" 
+         data-league="52" 
+         data-color="#e74c3c">
+    </div>
+    <script src="https://www.scoreaxis.com/widget/common.js"></script>
+    </div>
                 <div class="card" style="text-align: center; background: #000; border: 2px solid var(--bjk-red); padding: 20px;">
                     <i class="fas fa-fire" style="font-size: 2rem; color: var(--bjk-red); margin-bottom: 10px;"></i>
                     <h3 style="color: white; font-family: 'Oswald', sans-serif; margin-bottom: 15px;">MƏŞƏLİ YANDIR!</h3>
@@ -419,6 +434,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
