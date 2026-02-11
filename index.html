@@ -406,22 +406,30 @@ function savePrediction() {
         <div style="font-size: 2rem; margin-bottom: 10px;">🦅</div>
         <p>Hər Zaman, Hər Yerdə Ən Böyük Beşiktaş!</p>
         <span class="footer-creator">Yaradıcı: RƏSUL MƏMMƏDZADƏ</span>
-    <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-    <p style="font-size: 0.75rem; color: #888; margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase;">Ziyaretçi Sayı</p>
-    <div id="s-counter" style="font-family: 'Oswald', sans-serif; font-size: 1.8rem; color: #e74c3c; font-weight: bold; text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);">
-        000000
+   <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+    <p style="font-size: 0.75rem; color: #888; margin-bottom: 5px; letter-spacing: 2px; text-transform: uppercase;">Ziyarətçi Sayı</p>
+    <div id="real-counter" style="font-family: 'Oswald', sans-serif; font-size: 1.8rem; color: #e74c3c; font-weight: bold; text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);">
+        Yüklənir...
     </div>
 </div>
 
 <script>
-    // Sadə və effektiv yerli yaddaş sayğacı
-    function updateCounter() {
-        let count = localStorage.getItem('bjk_visit_count') || 1542; // Başlanğıc rəqəmi istədiyin kimi qoya bilərsən
-        count = parseInt(count) + 1;
-        localStorage.setItem('bjk_visit_count', count);
-        document.getElementById('s-counter').innerText = count.toLocaleString();
+    // Bu funksiya həqiqi ziyarətçiləri sayır və bazada saxlayır
+    function getVisitorCount() {
+        const namespace = 'besiktas-digital-rasul'; // Sənə özəl ad
+        const key = 'main-page';
+
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+            .then(res => res.json())
+            .then(res => {
+                document.getElementById('real-counter').innerText = res.value;
+            })
+            .catch(() => {
+                // Əgər API-də problem olsa, alternativ sadə sayğaca keçir
+                document.getElementById('real-counter').innerText = "Canlı";
+            });
     }
-    updateCounter();
+    getVisitorCount();
 </script>
     </footer>
 
@@ -527,6 +535,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
