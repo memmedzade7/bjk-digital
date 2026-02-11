@@ -275,46 +275,35 @@
             </div>
 
             <div class="sidebar">
-              <div class="card bjk-live-results">
+         <div class="card bjk-live-results">
     <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI MATÇLAR</h3>
     
-    <div class="results-container">
-        <div id="scoreaxis-widget-30c12" 
-             data-widget="scoreaxis-soccer-live-scores" 
-             data-style="dark" 
-             data-results-per-page="5">
-        </div>
+    <div id="scoreaxis-widget-soccer-live" 
+         data-widget="scoreaxis-soccer-live-scores" 
+         data-style="dark" 
+         data-results-per-page="10">
     </div>
+
+    <script src="https://www.scoreaxis.com/widget/common.js"></script>
 </div>
 
 <style>
-    /* Vidcetin rənglərini Beşiktaş üslubuna uyğunlaşdırırıq */
     .bjk-live-results {
-        background: #111 !important; /* Tam qara fon */
-        border: 1px solid #333;
-        padding: 15px !important;
-    }
-
-    .bjk-live-results .section-title {
-        color: #fff !important;
-        border-left-color: #e74c3c !important; /* BJK Qırmızısı */
-        margin-bottom: 15px;
-    }
-
-    /* Vidcetin daxili rənglərini "təmizləmək" üçün filtr */
-    .results-container {
-        filter: grayscale(1) brightness(1.2); /* Rəngli loqoları ağ-qara edir */
-        border-radius: 10px;
-        overflow: hidden;
+        background: #1a1a1b !important; /* Bir az daha yumşaq qara */
+        border-radius: 15px;
+        min-height: 200px; /* Vidcet gələnə qədər yer tutsun */
     }
     
-    .results-container:hover {
-        filter: none; /* Üzərinə gələndə rənglər qayıtsın */
-        transition: 0.5s;
+    /* Vidcetin daxilini ağ-qara edirik ki, sənin saytına tam uyğun olsun */
+    #scoreaxis-widget-soccer-live {
+        filter: grayscale(1) invert(0.1);
+        transition: 0.3s;
+    }
+
+    #scoreaxis-widget-soccer-live:hover {
+        filter: grayscale(0);
     }
 </style>
-
-<script src="https://www.scoreaxis.com/widget/common.js"></script>
                 <div class="card fan-gold-card">
                     <h3 style="margin-bottom: 15px;"><i class="fas fa-trophy"></i> Reytinq</h3>
                     <p style="font-size:0.7rem; margin-bottom:10px;">AYIN SONU İLK 3-Ə FORMA!</p>
@@ -505,6 +494,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
