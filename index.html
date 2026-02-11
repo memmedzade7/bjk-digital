@@ -179,6 +179,20 @@
     <h4 style="font-family:'Oswald'; color: var(--bjk-red); margin-bottom: 12px;">🦅 MATÇIN ADAMI</h4>
     <p style="font-size: 0.8rem; margin-bottom: 10px; color: #ccc;">Son oyunda kim daha yaxşı idi?</p>
     
+    <div id="vote-players">
+        <label style="display: block; background: #222; padding: 8px; border-radius: 5px; margin-bottom: 5px; cursor: pointer;">
+            <input type="radio" name="player" value="immobile"> Ciro Immobile
+        </label>
+        <label style="display: block; background: #222; padding: 8px; border-radius: 5px; margin-bottom: 5px; cursor: pointer;">
+            <input type="radio" name="player" value="rafa"> Rafa Silva
+        </label>
+        <label style="display: block; background: #222; padding: 8px; border-radius: 5px; margin-bottom: 10px; cursor: pointer;">
+            <input type="radio" name="player" value="gedson"> Gedson Fernandes
+        </label>
+    </div>
+    <button onclick="submitVote()" class="play-btn" style="background: var(--bjk-red); border: none;">SƏS VER</button>
+</div>
+
 <script>
 function submitVote() {
     const selected = document.querySelector('input[name="player"]:checked');
@@ -191,7 +205,6 @@ function submitVote() {
 </script>
                 <div class="card">
                     <h2 id="video" class="section-title">Media Mərkəzi</h2>
-                 
                     <div class="video-wrapper">
                         <iframe id="main-video" src="https://www.youtube.com/embed/GDnaQ0s1yAo" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -255,7 +268,6 @@ function submitVote() {
                     <p style="margin-top:10px; font-size:0.9rem; font-weight: bold;">Başakşehir vs Beşiktaş</p>
                     <p style="font-size:0.7rem; color: #ccc;">15 Fevral, 20:00</p>
                 </div>
-             
                 <div class="card" style="border-top: 3px solid #000; background: #fff;">
     <h4 style="font-family:'Oswald'; margin-bottom: 10px;"><i class="fas fa-magic"></i> HESABI TƏXMİN ET</h4>
     <p style="font-size: 0.75rem; color: #666; margin-bottom: 10px;">Düzgün tapana +20 Xal!</p>
@@ -423,7 +435,6 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
-
 
 
 
