@@ -324,51 +324,80 @@ function savePrediction() {
     alert("Təxmininiz qeydə alındı: Başakşehir " + home + "-" + away + " Beşiktaş. Uğurlar!");
 }
 </script>
-  <div class="card bjk-live-container">
-    <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI NƏTİCƏLƏR</h3>
-    
-    <iframe src="https://www.scorebat.com/embed/livescore/" 
-            allowfullscreen 
-            allow="autoplay; fullscreen" 
-            style="width:100%; height:500px; border:none; background: #111;" 
-            class="_scorebatEmbeddedPlayer_">
-    </iframe>
+<div class="card bjk-main-tabs">
+    <div class="tab-header">
+        <button class="t-btn active" onclick="switchTab(event, 'bjk-live')">BJK CANLI</button>
+        <button class="t-btn" onclick="switchTab(event, 'world-live')">DÜNYA</button>
+        <button class="t-btn" onclick="switchTab(event, 'bjk-squad-2026')">HEYƏT</button>
+    </div>
+
+    <div id="bjk-live" class="t-content show">
+        <iframe src="https://www.sofascore.com/team/football/besiktas/3050/events/embed" 
+                style="width:100%; height:400px; border:none; border-radius:8px; filter: invert(0.9) hue-rotate(180deg);">
+        </iframe>
+    </div>
+
+    <div id="world-live" class="t-content">
+        <iframe src="https://www.scorebat.com/embed/livescore/" 
+                style="width:100%; height:400px; border:none; border-radius:8px; filter: invert(0.9) hue-rotate(180deg);">
+        </iframe>
+    </div>
+
+    <div id="bjk-squad-2026" class="t-content">
+        <div class="squad-scroll-area">
+            <p class="coach-title">⚽ BAŞ MƏŞQÇİ: SERGEN YALÇIN</p>
+            
+            <div class="sq-cat"><span>🧤 QAPICILAR:</span> Devis Vásquez, Ersin Destanoğlu, Emir Yaşar, Emre Bilgin</div>
+            
+            <div class="sq-cat"><span>🛡️ DEFANS:</span> Emmanuel Agbadou, Tiago Djaló, Felix Uduokhai, Emirhan Topçu, Yasin Özcan, Rıdvan Yılmaz, Amir Murillo, Taylan Bulut, Gökhan Sazdağı, Necip Uysal</div>
+            
+            <div class="sq-cat"><span>⚙️ ORTA SAHA:</span> Orkun Kökçü, Wilfred Ndidi, Kristjan Asllani, Salih Uçan, Kartal Kayra Yılmaz, Junior Olaitan</div>
+            
+            <div class="sq-cat"><span>🎯 FORVET:</span> El Bilal Touré, Cengiz Ünder, Jota Silva, Milot Rashica, Václav Černý, Semih Kılıçsoy, Mustafa Hekimoğlu, Hyun-gyu Oh, Devrim Şahin</div>
+        </div>
+    </div>
 </div>
+
 <style>
-/* Canlı Nəticələr Bölməsi */
-.bjk-live-container {
-    background: #000 !important;
-    border: 2px solid #e74c3c; /* Kənar xətti qırmızı etdik */
-    padding: 5px !important;
-    border-radius: 12px;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
-
-/* Başlıq rəngi */
-.bjk-live-container .section-title {
-    color: #e74c3c !important; /* Yazını qırmızı etdik */
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    border-left: 4px solid #fff; /* Yanındakı xətti ağ etdik */
-    padding-left: 10px;
-}
-
-/* Vidcetin ölçüsü və rəngi */
-.bjk-live-container iframe {
-    height: 350px !important; /* Ölçünü kiçiltdik */
-    filter: invert(0.9) hue-rotate(180deg) sepia(1) saturate(5) hue-rotate(-50deg); 
-    /* Yuxarıdakı filtr yazıları qırmızımtıl-ağ çalara salmağa çalışır */
-    border-radius: 8px;
-}
-
-/* Mobil uyğunluq üçün kiçik toxunuş */
-@media (max-width: 768px) {
-    .bjk-live-container iframe {
-        height: 300px !important; /* Telefonda bir az da kiçik olsun */
+    .bjk-main-tabs { background: #111 !important; border: 1px solid #333; padding: 10px !important; }
+    
+    .tab-header { display: flex; gap: 4px; margin-bottom: 12px; }
+    
+    .t-btn { 
+        flex: 1; background: #222; color: #fff; border: none; padding: 10px 2px; 
+        font-size: 0.75rem; font-weight: bold; cursor: pointer; transition: 0.3s; border-radius: 4px;
     }
+    
+    .t-btn.active { background: #e74c3c; box-shadow: 0 0 10px rgba(231, 76, 60, 0.4); }
+
+    .t-content { display: none; animation: fadeIn 0.4s; }
+    .t-content.show { display: block; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Heyət Dizaynı */
+    .squad-scroll-area { max-height: 400px; overflow-y: auto; padding-right: 5px; }
+    .coach-title { color: #e74c3c; font-weight: bold; margin-bottom: 10px; font-size: 0.9rem; }
+    .sq-cat { background: #1a1a1a; padding: 8px; border-radius: 5px; margin-bottom: 6px; font-size: 0.85rem; color: #ccc; }
+    .sq-cat span { color: #fff; font-weight: bold; display: block; margin-bottom: 3px; font-size: 0.75rem; }
+
+    /* Scrollbar gözəlləşdirmə */
+    .squad-scroll-area::-webkit-scrollbar { width: 4px; }
+    .squad-scroll-area::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+</style>
+
+<script>
+function switchTab(evt, tabId) {
+    let contents = document.getElementsByClassName("t-content");
+    for (let i = 0; i < contents.length; i++) { contents[i].classList.remove("show"); }
+    
+    let btns = document.getElementsByClassName("t-btn");
+    for (let i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
+    
+    document.getElementById(tabId).classList.add("show");
+    evt.currentTarget.classList.add("active");
 }
-    </style>
+</script>
                 <div id="table" class="card">
                     <h3 style="margin-bottom: 15px;"><i class="fas fa-list-ol"></i> Turnir Cədvəli</h3>
                     <table style="width:100%; font-size: 0.9rem; border-collapse: collapse; text-align: left;">
@@ -510,6 +539,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
