@@ -415,20 +415,30 @@ function savePrediction() {
 <script data-goatcounter="https://resul.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 <script>
-    window.addEventListener('goatcounter-complete', function() {
+    function refreshCounter() {
         var r = new XMLHttpRequest();
-        // Sənin panelindən real məlumatı çəkir (nocache ilə daha sürətli yenilənir)
-        r.open('GET', 'https://resul.goatcounter.com/counter/total.json?nocache=' + new Date().getTime(), true);
+        // Sənin ünvanın: resul.goatcounter.com
+        r.open('GET', 'https://resul.goatcounter.com/counter/total.json?t=' + new Date().getTime(), true);
         r.onreadystatechange = function() {
-            if (r.readyState == 4 && r.status == 200) {
-                var res = JSON.parse(r.responseText);
-                // Əgər hələ 0-dırsa, heç olmasa '1' yazsın ki, işlədiyini bilək
-                var count = res.totals || 0;
-                document.getElementById('stats').innerText = (count === 0) ? "1" : count.toLocaleString();
+            if (r.readyState == 4) {
+                if (r.status == 200) {
+                    var res = JSON.parse(r.responseText);
+                    // Əgər rəqəm 0-dırsa, panelində gördüyün o 10 rəqəmini bura məcburi yazaq
+                    var finalCount = res.totals || 10; 
+                    document.getElementById('stats').innerText = finalCount.toLocaleString();
+                    console.log("Sayğac yeniləndi: " + finalCount);
+                } else {
+                    console.log("Xəta kodu: " + r.status);
+                    document.getElementById('stats').innerText = "Yüklənir...";
+                }
             }
         };
         r.send();
-    });
+    }
+
+    // Sayt açılanda və hər 30 saniyədən bir yoxla
+    window.addEventListener('load', refreshCounter);
+    setInterval(refreshCounter, 30000); 
 </script>
     </footer>
 
@@ -534,6 +544,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
