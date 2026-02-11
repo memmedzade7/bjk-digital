@@ -243,16 +243,15 @@ function submitVote() {
 
                 <div class="card match-card">
                     <h3 style="color: var(--bjk-red);">NÖVBƏTİ OYUN</h3>
-                    <div class="card" style="background: #000; color: #fff; border-bottom: 4px solid var(--bjk-red); padding: 15px;">
-    <h3 style="color: var(--bjk-red); text-align: center; font-family: 'Oswald'; margin-bottom: 10px;">NÖVBƏTİ OYUN</h3>
-    
-    <div id="scoreaxis-widget-next-match" 
-         data-widget="scoreaxis-soccer-team-next-match" 
-         data-team="3050" 
-         data-status="true" 
-         data-venue="true">
-    </div>
-</div>
+                    <div class="countdown" id="bjk-timer">
+                        <div class="time-box"><span id="d">0</span><small>G</small></div>
+                        <div class="time-box"><span id="h">0</span><small>S</small></div>
+                        <div class="time-box"><span id="m">0</span><small>D</small></div>
+                        <div class="time-box"><span id="s">0</span><small>Sn</small></div>
+                    </div>
+                    <p style="margin-top:10px; font-size:0.9rem; font-weight: bold;">Başakşehir vs Beşiktaş</p>
+                    <p style="font-size:0.7rem; color: #ccc;">15 Fevral, 20:00</p>
+                </div>
                 <div class="card" style="border-top: 3px solid #000; background: #fff;">
     <h4 style="font-family:'Oswald'; margin-bottom: 10px;"><i class="fas fa-magic"></i> HESABI TƏXMİN ET</h4>
     <p style="font-size: 0.75rem; color: #666; margin-bottom: 10px;">Düzgün tapana +20 Xal!</p>
@@ -420,7 +419,6 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
-
 
 
 
