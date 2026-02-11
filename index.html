@@ -417,12 +417,14 @@ function savePrediction() {
 <script>
     window.addEventListener('goatcounter-complete', function() {
         var r = new XMLHttpRequest();
-        // Sənin ünvanın bura yazıldı:
-        r.open('GET', 'https://resul.goatcounter.com/counter/total.json', true);
+        // Sənin panelindən real məlumatı çəkir (nocache ilə daha sürətli yenilənir)
+        r.open('GET', 'https://resul.goatcounter.com/counter/total.json?nocache=' + new Date().getTime(), true);
         r.onreadystatechange = function() {
             if (r.readyState == 4 && r.status == 200) {
                 var res = JSON.parse(r.responseText);
-                document.getElementById('stats').innerText = res.totals.toLocaleString();
+                // Əgər hələ 0-dırsa, heç olmasa '1' yazsın ki, işlədiyini bilək
+                var count = res.totals || 0;
+                document.getElementById('stats').innerText = (count === 0) ? "1" : count.toLocaleString();
             }
         };
         r.send();
@@ -532,6 +534,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
