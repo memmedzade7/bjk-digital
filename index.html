@@ -294,27 +294,26 @@
         overflow: hidden;
     }
 
-    /* Vidcetin daxilindəki rəngləri BJK üslubuna uyğunlaşdırırıq */
+    /* VİDCETİ GÖRÜNƏN EDƏN HİSSƏ */
     .livescore-widget {
-        filter: invert(1) hue-rotate(180deg) grayscale(1); /* Rəngləri qara-ağ edir */
-        opacity: 0.9;
-        min-height: 300px;
+        filter: invert(1) brightness(2) contrast(1.2); /* Qaranı ağ edir və parlaqlığı artırır */
+        opacity: 1;
+        min-height: 400px;
+        width: 100%;
+    }
+
+    /* Vidcetin daxilindəki iframe-i məcburi ağ etmək üçün */
+    .livescore-widget iframe {
+        background: transparent !important;
     }
 
     .live-info {
         margin-top: 10px;
         text-align: center;
-        color: #777;
-        font-size: 0.7rem;
-        border-top: 1px solid #222;
-        padding-top: 5px;
-    }
-
-    /* Mobil üçün ölçü tənzimləməsi */
-    @media (max-width: 768px) {
-        .livescore-widget {
-            min-height: 250px;
-        }
+        color: #bbb; /* Yazını bir az açırıq */
+        font-size: 0.75rem;
+        padding: 10px;
+        background: #222;
     }
 </style>
                 <div class="card fan-gold-card">
@@ -507,6 +506,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
