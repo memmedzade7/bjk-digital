@@ -275,51 +275,7 @@
             </div>
 
             <div class="sidebar">
-  <div class="card bjk-live-container">
-    <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI NƏTİCƏLƏR</h3>
-    
-    <iframe src="https://www.scorebat.com/embed/livescore/" 
-            allowfullscreen 
-            allow="autoplay; fullscreen" 
-            style="width:100%; height:500px; border:none; background: #111;" 
-            class="_scorebatEmbeddedPlayer_">
-    </iframe>
-</div>
-<style>
-/* Canlı Nəticələr Bölməsi */
-.bjk-live-container {
-    background: #000 !important;
-    border: 2px solid #e74c3c; /* Kənar xətti qırmızı etdik */
-    padding: 5px !important;
-    border-radius: 12px;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
-
-/* Başlıq rəngi */
-.bjk-live-container .section-title {
-    color: #e74c3c !important; /* Yazını qırmızı etdik */
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    border-left: 4px solid #fff; /* Yanındakı xətti ağ etdik */
-    padding-left: 10px;
-}
-
-/* Vidcetin ölçüsü və rəngi */
-.bjk-live-container iframe {
-    height: 350px !important; /* Ölçünü kiçiltdik */
-    filter: invert(0.9) hue-rotate(180deg) sepia(1) saturate(5) hue-rotate(-50deg); 
-    /* Yuxarıdakı filtr yazıları qırmızımtıl-ağ çalara salmağa çalışır */
-    border-radius: 8px;
-}
-
-/* Mobil uyğunluq üçün kiçik toxunuş */
-@media (max-width: 768px) {
-    .bjk-live-container iframe {
-        height: 300px !important; /* Telefonda bir az da kiçik olsun */
-    }
-}
-    </style>
+ 
                 <div class="card fan-gold-card">
                     <h3 style="margin-bottom: 15px;"><i class="fas fa-trophy"></i> Reytinq</h3>
                     <p style="font-size:0.7rem; margin-bottom:10px;">AYIN SONU İLK 3-Ə FORMA!</p>
@@ -368,7 +324,51 @@ function savePrediction() {
     alert("Təxmininiz qeydə alındı: Başakşehir " + home + "-" + away + " Beşiktaş. Uğurlar!");
 }
 </script>
+  <div class="card bjk-live-container">
+    <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI NƏTİCƏLƏR</h3>
+    
+    <iframe src="https://www.scorebat.com/embed/livescore/" 
+            allowfullscreen 
+            allow="autoplay; fullscreen" 
+            style="width:100%; height:500px; border:none; background: #111;" 
+            class="_scorebatEmbeddedPlayer_">
+    </iframe>
+</div>
+<style>
+/* Canlı Nəticələr Bölməsi */
+.bjk-live-container {
+    background: #000 !important;
+    border: 2px solid #e74c3c; /* Kənar xətti qırmızı etdik */
+    padding: 5px !important;
+    border-radius: 12px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
 
+/* Başlıq rəngi */
+.bjk-live-container .section-title {
+    color: #e74c3c !important; /* Yazını qırmızı etdik */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-left: 4px solid #fff; /* Yanındakı xətti ağ etdik */
+    padding-left: 10px;
+}
+
+/* Vidcetin ölçüsü və rəngi */
+.bjk-live-container iframe {
+    height: 350px !important; /* Ölçünü kiçiltdik */
+    filter: invert(0.9) hue-rotate(180deg) sepia(1) saturate(5) hue-rotate(-50deg); 
+    /* Yuxarıdakı filtr yazıları qırmızımtıl-ağ çalara salmağa çalışır */
+    border-radius: 8px;
+}
+
+/* Mobil uyğunluq üçün kiçik toxunuş */
+@media (max-width: 768px) {
+    .bjk-live-container iframe {
+        height: 300px !important; /* Telefonda bir az da kiçik olsun */
+    }
+}
+    </style>
                 <div id="table" class="card">
                     <h3 style="margin-bottom: 15px;"><i class="fas fa-list-ol"></i> Turnir Cədvəli</h3>
                     <table style="width:100%; font-size: 0.9rem; border-collapse: collapse; text-align: left;">
@@ -510,6 +510,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
