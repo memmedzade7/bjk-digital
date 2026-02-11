@@ -275,7 +275,46 @@
             </div>
 
             <div class="sidebar">
-              
+              <div class="card bjk-live-results">
+    <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI MATÇLAR</h3>
+    
+    <div class="results-container">
+        <div id="scoreaxis-widget-30c12" 
+             data-widget="scoreaxis-soccer-live-scores" 
+             data-style="dark" 
+             data-results-per-page="5">
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Vidcetin rənglərini Beşiktaş üslubuna uyğunlaşdırırıq */
+    .bjk-live-results {
+        background: #111 !important; /* Tam qara fon */
+        border: 1px solid #333;
+        padding: 15px !important;
+    }
+
+    .bjk-live-results .section-title {
+        color: #fff !important;
+        border-left-color: #e74c3c !important; /* BJK Qırmızısı */
+        margin-bottom: 15px;
+    }
+
+    /* Vidcetin daxili rənglərini "təmizləmək" üçün filtr */
+    .results-container {
+        filter: grayscale(1) brightness(1.2); /* Rəngli loqoları ağ-qara edir */
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .results-container:hover {
+        filter: none; /* Üzərinə gələndə rənglər qayıtsın */
+        transition: 0.5s;
+    }
+</style>
+
+<script src="https://www.scoreaxis.com/widget/common.js"></script>
                 <div class="card fan-gold-card">
                     <h3 style="margin-bottom: 15px;"><i class="fas fa-trophy"></i> Reytinq</h3>
                     <p style="font-size:0.7rem; margin-bottom:10px;">AYIN SONU İLK 3-Ə FORMA!</p>
@@ -466,6 +505,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
