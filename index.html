@@ -416,31 +416,27 @@ function savePrediction() {
 <script>
     function refreshCounter() {
         var r = new XMLHttpRequest();
-        // Sənin panelindən real rəqəmi çəkir
+        // Sənin GoatCounter hesabından ən son datanı çəkir
         r.open('GET', 'https://resul.goatcounter.com/counter/total.json?t=' + new Date().getTime(), true);
         r.onreadystatechange = function() {
-            if (r.readyState == 4) {
-                if (r.status == 200) {
-                    var res = JSON.parse(r.responseText);
-                   
-                  var finalCount = res.unique || 10;
-                    document.getElementById('stats').innerText = finalCount.toLocaleString();
-                } else {
-                    // Xəta olsa, rəqəmi yalandan 1 vahid artırırıq ki, "Yüklənir" yazmasın
-                    var current = parseInt(document.getElementById('stats').innerText) || 10;
-                    document.getElementById('stats').innerText = current + 1;
-                }
+            if (r.readyState == 4 && r.status == 200) {
+                var res = JSON.parse(r.responseText);
+                
+                // UNİKAL (Həqiqi insan) sayını götürürük
+                // Əgər GoatCounter-də rəqəm 6-dırsa, saytda da 6 görünəcək
+                var realCount = res.unique || 0; 
+                
+                document.getElementById('stats').innerText = realCount.toLocaleString();
+                console.log("Real statistika yeniləndi: " + realCount);
             }
         };
         r.send();
     }
 
-    // Sayt açılan kimi işə sal
+    // Sayt açılan kimi və hər dəqiqə başı yoxla
     refreshCounter();
-    // Hər 1 dəqiqədən bir rəqəmi yenilə
     setInterval(refreshCounter, 60000);
 </script>
-
     </footer>
 
     <script>
@@ -545,6 +541,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
