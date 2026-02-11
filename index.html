@@ -275,33 +275,46 @@
             </div>
 
             <div class="sidebar">
-         <div class="card bjk-live-results">
-    <h3 class="section-title"><i class="fas fa-satellite-dish"></i> CANLI MATÇLAR</h3>
+  <div class="card bjk-live-center">
+    <h3 class="section-title"><i class="fas fa-futball"></i> CANLI MƏRKƏZ</h3>
     
-    <div id="scoreaxis-widget-soccer-live" 
-         data-widget="scoreaxis-soccer-live-scores" 
-         data-style="dark" 
-         data-results-per-page="10">
+    <div id="ls-widget" data-mLS="true" class="livescore-widget"></div>
+    <script type="text/javascript" src="https://ls.scoreaxis.com/widget/common.js"></script>
+    
+    <div class="live-info">
+        <small><i class="fas fa-info-circle"></i> Oyun yoxdursa, son nəticələr göstərilir.</small>
     </div>
-
-    <script src="https://www.scoreaxis.com/widget/common.js"></script>
 </div>
 
 <style>
-    .bjk-live-results {
-        background: #1a1a1b !important; /* Bir az daha yumşaq qara */
-        border-radius: 15px;
-        min-height: 200px; /* Vidcet gələnə qədər yer tutsun */
-    }
-    
-    /* Vidcetin daxilini ağ-qara edirik ki, sənin saytına tam uyğun olsun */
-    #scoreaxis-widget-soccer-live {
-        filter: grayscale(1) invert(0.1);
-        transition: 0.3s;
+    .bjk-live-center {
+        background: #111 !important;
+        border: 1px solid #333;
+        color: white;
+        overflow: hidden;
     }
 
-    #scoreaxis-widget-soccer-live:hover {
-        filter: grayscale(0);
+    /* Vidcetin daxilindəki rəngləri BJK üslubuna uyğunlaşdırırıq */
+    .livescore-widget {
+        filter: invert(1) hue-rotate(180deg) grayscale(1); /* Rəngləri qara-ağ edir */
+        opacity: 0.9;
+        min-height: 300px;
+    }
+
+    .live-info {
+        margin-top: 10px;
+        text-align: center;
+        color: #777;
+        font-size: 0.7rem;
+        border-top: 1px solid #222;
+        padding-top: 5px;
+    }
+
+    /* Mobil üçün ölçü tənzimləməsi */
+    @media (max-width: 768px) {
+        .livescore-widget {
+            min-height: 250px;
+        }
     }
 </style>
                 <div class="card fan-gold-card">
@@ -494,6 +507,7 @@ window.addEventListener('load', function() {
     </script>
 </body>
 </html>
+
 
 
 
